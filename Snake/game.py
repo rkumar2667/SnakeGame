@@ -1,5 +1,5 @@
 import time
-import  pygame , sys
+import pygame, sys
 from pygame.locals import  *
 import random
 
@@ -35,7 +35,6 @@ large_font = pygame.font.SysFont("comicsansms", 75)
 def pause():
     paused = True
     display_msg("Paused", black, -100, "large")
-
     display_msg("Press C to Continue or Q to Quit", black, 25, "small")
     pygame.display.update()
     clock.tick(5)
@@ -52,11 +51,8 @@ def pause():
                     paused = False
         #screen.fill(white)
 
-
-
 def winner():
     paused = True
-
     while paused:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -72,7 +68,6 @@ def winner():
 
         #screen.fill(white)
         display_msg("Congrats , You are A  Winner ", green, -100, "small")
-
         display_msg("Press C to Continue or Q to Quit", black, 25, "small")
         pygame.display.update()
         clock.tick(5)
@@ -80,7 +75,6 @@ def winner():
 def score(score):
     text = small_font.render("Score : "+str(score),True, black)
     screen.blit(text, [0,0])
-
 
 def game_intro():
     intro = True
@@ -101,13 +95,10 @@ def game_intro():
         display_msg("Eat Apples and Score 30 to be a Winner", black, 20, "small")
         display_msg("All The Best", black, 60, "small")
         display_msg("Press C to play , P to Pause and Q to Quit",black, 100,"small")
-
         pygame.display.update()
         clock.tick(5)
 
-
 def snake(block,snakelist):
-
     if direction == "right":
         head = pygame.transform.rotate(img,270)
     if direction == "left":
@@ -116,7 +107,6 @@ def snake(block,snakelist):
         head = img
     if direction == "down":
         head = pygame.transform.rotate(img, 180)
-
 
     screen.blit(head,(snakelist[-1][0],snakelist[-1][1]))
     for XnY in snakelist[:-1]:
@@ -236,9 +226,8 @@ def gameLoop():
             snakelen += 1
 
         clock.tick(FPS + snakelen/2)
-
-
-
+        
+        
     pygame.quit()
     quit()
 game_intro()
